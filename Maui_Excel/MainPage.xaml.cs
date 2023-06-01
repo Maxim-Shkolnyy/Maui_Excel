@@ -36,7 +36,7 @@ public partial class MainPage : ContentPage
 
         var dataFromTargetFile = await result.OpenReadAsync();
 
-        using (var workbook = new XLWorkbook(dataFromTargetFile))
+        using (XLWorkbook workbook = new XLWorkbook(dataFromTargetFile))
         {
             var worksheet = workbook.Worksheet(1); // Предполагается, что данные находятся в первом листе
 
