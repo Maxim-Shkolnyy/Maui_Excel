@@ -8,13 +8,7 @@
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
-
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
-
+            
             <Label
                 Text="Hello, World!"
                 SemanticProperties.HeadingLevel="Level1"
@@ -35,7 +29,20 @@
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
 
+            <Entry x:Name="targetFilePath" HorizontalTextAlignment ="Center" ClearButtonVisibility ="WhileEditing" Margin ="5"  />
+
+            <Picker x:Name="worksheetPicker" SelectedIndexChanged="OnWorksheetSelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Sheet 1</x:String>
+                        <!-- По умолчанию отображается первый лист -->
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+
         </VerticalStackLayout>
     </ScrollView>
+
 
 </ContentPage>

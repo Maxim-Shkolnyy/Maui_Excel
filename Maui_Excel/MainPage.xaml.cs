@@ -1,4 +1,5 @@
 ﻿using ClosedXML.Excel;
+using Microsoft.Maui.Controls.Internals;
 
 
 namespace Maui_Excel;
@@ -33,6 +34,8 @@ public partial class MainPage : ContentPage
 
         var path = result.FullPath;
 
+        targetFilePath.Text = path;
+
         if (result == null)
             return;
 
@@ -41,6 +44,10 @@ public partial class MainPage : ContentPage
         using (var workbook = new XLWorkbook(dataFromTargetFile))
         {
             var worksheet = workbook.Worksheet(1); // Предполагается, что данные находятся в первом листе
+            var worksheetNames = workbook.Worksheets.Select(sheet => sheet.Name).ToList();
+            worksheetPicker.ItemsSource = worksheetNames;
+            worksheetPicker.SelectedItem = worksheetNames.FirstOrDefault();
+
 
             // Получение диапазона данных в виде двумерного массива
             var range = worksheet.RangeUsed();
@@ -85,6 +92,13 @@ public partial class MainPage : ContentPage
             //SemanticScreenReader.Announce(CounterBtn.Text);
         }
     }
+
+    private void OnWorksheetSelectedIndexChanged(object sender, EventArgs e)
+    {
+        var selectedWorksheet = worksheetPicker.SelectedItem as string;
+        // Здесь можно выполнить действия с выбранным листом, сохранить его в переменной или выполнять другую логику
+    }
+
 }
 
 
