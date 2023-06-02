@@ -21,7 +21,6 @@ public partial class MainPage : ContentPage
                 { DevicePlatform.iOS, new[] { "public.spreadsheetml.sheet", "com.microsoft.excel.xls", "org.openxmlformats.spreadsheetml.sheet" } }, // UTType values for Excel files
                 { DevicePlatform.Android, new[] { "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" } }, // MIME types for Excel files
                 { DevicePlatform.WinUI, new[] { ".xlsx", ".xls" } }, // file extensions for Excel files
-                { DevicePlatform.Tizen, new[] { "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" } }, // MIME types for Excel files
                 { DevicePlatform.macOS, new[] { "public.spreadsheetml.sheet", "com.microsoft.excel.xls", "org.openxmlformats.spreadsheetml.sheet" } } // UTType values for Excel files
             });
 
