@@ -30,7 +30,7 @@
     <AppXManifest Include="C:\Users\Max\source\repos\Maui_Excel\Maui_Excel\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-06-02T09:55:34.184</Modified>
+      <Modified>2023-06-02T09:57:23.871</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
