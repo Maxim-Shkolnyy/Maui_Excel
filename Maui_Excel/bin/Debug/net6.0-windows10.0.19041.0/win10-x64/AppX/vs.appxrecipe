@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Max\source\repos\Maui_Excel\Maui_Excel\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-06-02T09:57:23.871</Modified>
+      <Modified>2023-06-02T10:37:52.621</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Max\source\repos\Maui_Excel\Maui_Excel\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-06-02T09:55:33.724</Modified>
+      <Modified>2023-06-02T10:37:52.221</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Max\source\repos\Maui_Excel\Maui_Excel\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\Maui_Excel.runtimeconfig.json">
       <PackagePath>Maui_Excel.runtimeconfig.json</PackagePath>
@@ -44,11 +44,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Max\source\repos\Maui_Excel\Maui_Excel\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\Maui_Excel.dll">
       <PackagePath>Maui_Excel.dll</PackagePath>
-      <Modified>2023-06-02T09:55:32.509</Modified>
+      <Modified>2023-06-02T10:37:50.954</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Max\source\repos\Maui_Excel\Maui_Excel\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>Maui_Excel.exe</PackagePath>
-      <Modified>2023-06-02T09:55:32.534</Modified>
+      <Modified>2023-06-02T10:37:50.978</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Max\source\repos\Maui_Excel\Maui_Excel\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\Maui_Excel.deps.json">
       <PackagePath>Maui_Excel.deps.json</PackagePath>
