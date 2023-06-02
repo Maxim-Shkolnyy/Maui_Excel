@@ -1,15 +1,17 @@
 ﻿using ClosedXML.Excel;
+using Microsoft.Maui.Controls.Internals;
+
 
 namespace Maui_Excel;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+    int count = 0;
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+    public MainPage()
+    {
+        InitializeComponent();
+    }
 
 
     private async void OnCounterClicked(object sender, EventArgs e)
@@ -20,7 +22,6 @@ public partial class MainPage : ContentPage
                 { DevicePlatform.iOS, new[] { "public.spreadsheetml.sheet", "com.microsoft.excel.xls", "org.openxmlformats.spreadsheetml.sheet" } }, // UTType values for Excel files
                 { DevicePlatform.Android, new[] { "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" } }, // MIME types for Excel files
                 { DevicePlatform.WinUI, new[] { ".xlsx", ".xls" } }, // file extensions for Excel files
-                { DevicePlatform.Tizen, new[] { "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" } }, // MIME types for Excel files
                 { DevicePlatform.macOS, new[] { "public.spreadsheetml.sheet", "com.microsoft.excel.xls", "org.openxmlformats.spreadsheetml.sheet" } } // UTType values for Excel files
             });
 
@@ -31,6 +32,10 @@ public partial class MainPage : ContentPage
             FileTypes = excelFileType
         });
 
+        var path = result.FullPath;
+
+        targetFilePath.Text = path; 
+
         if (result == null)
             return;
 
@@ -39,6 +44,10 @@ public partial class MainPage : ContentPage
         using (XLWorkbook workbook = new XLWorkbook(dataFromTargetFile))
         {
             var worksheet = workbook.Worksheet(1); // Предполагается, что данные находятся в первом листе
+            var worksheetNames = workbook.Worksheets.Select(sheet => sheet.Name).ToList();
+            worksheetPicker.ItemsSource = worksheetNames;
+            worksheetPicker.SelectedItem = worksheetNames.FirstOrDefault();
+
 
             // Получение диапазона данных в виде двумерного массива
             var range = worksheet.RangeUsed();
@@ -55,17 +64,21 @@ public partial class MainPage : ContentPage
                 }
             }
 
-            // Используйте массив данных по вашему усмотрению
-            // Например, можно вывести данные в консоль
+
+            var tBook = new XLWorkbook();
+            var tSheet = tBook.Worksheets.Add("New Sheet");
+
+            // Заполнение ячеек на листе данными из двумерного массива
             for (int row = 0; row < rowCount; row++)
             {
                 for (int column = 0; column < columnCount; column++)
                 {
-                    Console.WriteLine($"Cell [{row + 1},{column + 1}]: {data[row, column]}");
+                    tSheet.Cell(row + 1, column + 1).SetValue(data[row, column]); // принудительное сохранение в строку
                 }
             }
 
-
+            // Сохранение рабочей книги
+            tBook.SaveAs("D:\\PathToFile2.xlsx");
 
 
 
@@ -79,5 +92,14 @@ public partial class MainPage : ContentPage
             //SemanticScreenReader.Announce(CounterBtn.Text);
         }
     }
+
+    private void OnWorksheetSelectedIndexChanged(object sender, EventArgs e)
+    {
+        var selectedWorksheet = worksheetPicker.SelectedItem as string;
+        // Здесь можно выполнить действия с выбранным листом, сохранить его в переменной или выполнять другую логику
+    }
+
 }
+
+
 

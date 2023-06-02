@@ -16,7 +16,7 @@
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.maui_excel</ApplicationId>
-		<ApplicationIdGuid>19a77d95-89d3-4edc-87bf-036e30f9d892</ApplicationIdGuid>
+		<ApplicationIdGuid>fa3f5c91-16b0-4dd8-aebb-2c817640f17b</ApplicationIdGuid>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -50,18 +50,6 @@
 
 	<ItemGroup>
 	  <PackageReference Include="ClosedXML" Version="0.101.0" />
-	  <PackageReference Include="ClosedXML.Extensions.Mvc" Version="0.4.0" />
-	  <PackageReference Include="ClosedXML_Excel" Version="1.0.0" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="MVVM\" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<KnownRuntimePack Update="@(KnownRuntimePack)">
-			<LatestRuntimeFrameworkVersion Condition="'%(TargetFramework)' == 'TARGETFRAMEWORK'">EXISTINGVERSION</LatestRuntimeFrameworkVersion>
-		</KnownRuntimePack>
 	</ItemGroup>
 
 </Project>
