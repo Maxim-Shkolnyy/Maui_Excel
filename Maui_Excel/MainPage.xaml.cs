@@ -1,15 +1,16 @@
 ﻿using ClosedXML.Excel;
 
+
 namespace Maui_Excel;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+    int count = 0;
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+    public MainPage()
+    {
+        InitializeComponent();
+    }
 
 
     private async void OnCounterClicked(object sender, EventArgs e)
@@ -80,4 +81,6 @@ public partial class MainPage : ContentPage
         }
     }
 }
+
+
 
