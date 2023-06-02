@@ -66,6 +66,20 @@ public partial class MainPage : ContentPage
             }
 
 
+            var tBook = new XLWorkbook();
+            var tSheet = tBook.Worksheets.Add("New Sheet");
+
+            // Заполнение ячеек на листе данными из двумерного массива
+            for (int row = 0; row < rowCount; row++)
+            {
+                for (int column = 0; column < columnCount; column++)
+                {
+                    tSheet.Cell(row + 1, column + 1).SetValue(data[row, column]);
+                }
+            }
+
+            // Сохранение рабочей книги
+            tBook.SaveAs("D:\\PathToFile2.xlsx");
 
 
 
