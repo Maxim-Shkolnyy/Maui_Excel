@@ -34,7 +34,7 @@ public partial class MainPage : ContentPage
 
         var path = result.FullPath;
 
-        targetFilePath.Text = path;
+        targetFilePath.Text = path; 
 
         if (result == null)
             return;
