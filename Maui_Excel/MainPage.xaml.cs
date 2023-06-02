@@ -31,6 +31,8 @@ public partial class MainPage : ContentPage
             FileTypes = excelFileType
         });
 
+        var path = result.FullPath;
+
         if (result == null)
             return;
 
@@ -55,16 +57,6 @@ public partial class MainPage : ContentPage
                 }
             }
 
-            // Используйте массив данных по вашему усмотрению
-            // Например, можно вывести данные в консоль
-            for (int row = 0; row < rowCount; row++)
-            {
-                for (int column = 0; column < columnCount; column++)
-                {
-                    Console.WriteLine($"Cell [{row + 1},{column + 1}]: {data[row, column]}");
-                }
-            }
-
 
             var tBook = new XLWorkbook();
             var tSheet = tBook.Worksheets.Add("New Sheet");
@@ -74,7 +66,7 @@ public partial class MainPage : ContentPage
             {
                 for (int column = 0; column < columnCount; column++)
                 {
-                    tSheet.Cell(row + 1, column + 1).SetValue(data[row, column]);
+                    tSheet.Cell(row + 1, column + 1).SetValue(data[row, column]); // принудительное сохранение в строку
                 }
             }
 
