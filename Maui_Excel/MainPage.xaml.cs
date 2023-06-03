@@ -17,7 +17,7 @@ public partial class MainPage : ContentPage
     private async void OnCounterClicked(object sender, EventArgs e)
     {
         var excelFileType = new FilePickerFileType(
-            new Dictionary<DevicePlatform, IEnumerable<string>>
+            new Dictionary<DevicePlatform, IEnumerable<string>> 
             {
                 { DevicePlatform.iOS, new[] { "public.spreadsheetml.sheet", "com.microsoft.excel.xls", "org.openxmlformats.spreadsheetml.sheet" } }, // UTType values for Excel files
                 { DevicePlatform.Android, new[] { "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" } }, // MIME types for Excel files
