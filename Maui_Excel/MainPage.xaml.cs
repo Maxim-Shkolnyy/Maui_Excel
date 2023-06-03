@@ -43,10 +43,10 @@ public partial class MainPage : ContentPage
 
         using (XLWorkbook workbook = new XLWorkbook(dataFromTargetFile))
         {
-            var worksheet = workbook.Worksheet(1); // Предполагается, что данные находятся в первом листе
             var worksheetNames = workbook.Worksheets.Select(sheet => sheet.Name).ToList();
             worksheetPicker.ItemsSource = worksheetNames;
             worksheetPicker.SelectedItem = worksheetNames.FirstOrDefault();
+            var worksheet = workbook.Worksheet(1); // Предполагается, что данные находятся в первом листе
 
 
             // Получение диапазона данных в виде двумерного массива
@@ -75,21 +75,8 @@ public partial class MainPage : ContentPage
                 {
                     tSheet.Cell(row + 1, column + 1).SetValue(data[row, column]); // принудительное сохранение в строку
                 }
-            }
-
-            // Сохранение рабочей книги
-            tBook.SaveAs("D:\\PathToFile2.xlsx");
-
-
-
-            //count++;
-
-            //if (count == 1)
-            //	CounterBtn.Text = $"Clicked {count} time";
-            //else
-            //	CounterBtn.Text = $"Clicked {count} times";
-
-            //SemanticScreenReader.Announce(CounterBtn.Text);
+            }            
+            tBook.SaveAs("D:\\PathToFile2.xlsx");            
         }
     }
 
