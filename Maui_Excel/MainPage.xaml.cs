@@ -1,6 +1,6 @@
 ﻿using ClosedXML.Excel;
 using Microsoft.Maui.Controls.Internals;
-
+using Microsoft.Maui.Controls.Xaml;
 
 namespace Maui_Excel;
 
@@ -43,7 +43,7 @@ public partial class MainPage : ContentPage
         using (XLWorkbook workbook = new XLWorkbook(dataFromTargetFile))
         {
             var worksheet = workbook.Worksheet(1); // Предполагается, что данные находятся в первом листе
-            var worksheetNames = workbook.Worksheets.Select(sheet => sheet.Name).ToList();           
+            var worksheetNames = workbook.Worksheets.Select(sheet => sheet.Name).ToList();
             worksheetPicker.ItemsSource = worksheetNames;
             worksheetPicker.SelectedItem = worksheetNames.FirstOrDefault();                      
 

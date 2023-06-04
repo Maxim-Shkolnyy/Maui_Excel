@@ -31,10 +31,10 @@
 
             <Entry x:Name="targetFilePath" HorizontalTextAlignment ="Center" ClearButtonVisibility ="WhileEditing" Margin ="5"  />
 
-            <Picker x:Name="worksheetPicker" SelectedIndexChanged="OnWorksheetSelectedIndexChanged">
+            <Picker x:Name="worksheetPicker"  SelectedIndex="1">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
-                        <x:String>Sheet 1</x:String>
+                        <!--<x:String>Sheet 1</x:String>-->
                         <!-- По умолчанию отображается первый лист -->
                     </x:Array>
                 </Picker.ItemsSource>
