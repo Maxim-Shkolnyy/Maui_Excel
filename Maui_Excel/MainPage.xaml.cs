@@ -13,7 +13,6 @@ public partial class MainPage : ContentPage
         InitializeComponent();
     }
 
-
     private async void OnCounterClicked(object sender, EventArgs e)
     {
         var excelFileType = new FilePickerFileType(
@@ -28,7 +27,7 @@ public partial class MainPage : ContentPage
 
         var result = await FilePicker.PickAsync(new PickOptions
         {
-            PickerTitle = "Please select excel file",
+            PickerTitle = "Please select excel file", 
             FileTypes = excelFileType
         });
 
@@ -43,13 +42,13 @@ public partial class MainPage : ContentPage
 
         using (XLWorkbook workbook = new XLWorkbook(dataFromTargetFile))
         {
-            var worksheetNames = workbook.Worksheets.Select(sheet => sheet.Name).ToList();
-            worksheetPicker.ItemsSource = worksheetNames;
-            worksheetPicker.SelectedItem = worksheetNames.FirstOrDefault();
             var worksheet = workbook.Worksheet(1); // Предполагается, что данные находятся в первом листе
+            var worksheetNames = workbook.Worksheets.Select(sheet => sheet.Name).ToList();           
+            worksheetPicker.ItemsSource = worksheetNames;
+            worksheetPicker.SelectedItem = worksheetNames.FirstOrDefault();                      
 
 
-            // Получение диапазона данных в виде двумерного массива
+            // Получение диапазона данных в виде двумерного массива 
             var range = worksheet.RangeUsed();
             var rowCount = range.RowCount();
             var columnCount = range.ColumnCount();
@@ -64,7 +63,7 @@ public partial class MainPage : ContentPage
                 }
             }
 
-
+            UpdateSelectedWorksheet();
             var tBook = new XLWorkbook();
             var tSheet = tBook.Worksheets.Add("New Sheet");
 
@@ -84,6 +83,14 @@ public partial class MainPage : ContentPage
     {
         var selectedWorksheet = worksheetPicker.SelectedItem as string;
         // Здесь можно выполнить действия с выбранным листом, сохранить его в переменной или выполнять другую логику
+    }
+
+    private void UpdateSelectedWorksheet()
+    {
+        var selectedWorksheet = worksheetPicker.SelectedItem as string;
+        // Здесь можно выполнить действия с выбранным листом, сохранить его в переменной или выполнять другую логику
+
+        
     }
 
 }
