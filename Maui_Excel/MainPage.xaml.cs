@@ -13,6 +13,8 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
+        worksheetPicker.SelectedIndexChanged += OnWorksheetSelectedIndexChanged;
+
     }
 
     private async void OnCounterClicked(object sender, EventArgs e)
@@ -47,8 +49,9 @@ public partial class MainPage : ContentPage
             var worksheet = workbook.Worksheet(1); // Предполагается, что данные находятся в первом листе
             var worksheetNames = workbook.Worksheets.Select(sheet => sheet.Name).ToList();
             worksheetPicker.ItemsSource = worksheetNames;
-            worksheetPicker.SelectedItem = worksheetNames.FirstOrDefault(); 
-            UpdateSelectedWorksheet();
+            worksheetPicker.SelectedIndex = 0; 
+            //UpdateSelectedWorksheet();
+            //UpdateWorksheetList();
 
 
             // Получение диапазона данных в виде двумерного массива 
@@ -66,7 +69,7 @@ public partial class MainPage : ContentPage
             //    }
             //}
 
-            
+
             //var tBook = new XLWorkbook();
             //var tSheet = tBook.Worksheets.Add("New Sheet");
 
@@ -82,11 +85,22 @@ public partial class MainPage : ContentPage
         }
     }
 
-    //private void UpdateSelectedWorksheet(object sender, EventArgs e)
-    //{
-    //    selectedWorksheet = worksheetPicker.SelectedItem as string;
-    //    // Здесь можно выполнить действия с выбранным листом, сохранить его в переменной или выполнять другую логику
-    //}
+    private void UpdateWorksheetList()
+    {
+        List<string> worksheetList = new();
+
+        using (IXLWorkbook workbook = new XLWorkbook())
+        {
+            var worksheetNames = workbook.Worksheets.Select(s => s.Name).ToList();
+            worksheetPicker.ItemsSource = worksheetNames;
+        }
+    }
+
+    private void OnWorksheetSelectedIndexChanged(object sender, EventArgs e)
+    {
+        selectedWorksheet = worksheetPicker.SelectedItem as string;
+        // Здесь можно выполнить действия с выбранным листом, сохранить его в переменной или выполнять другую логику
+    }
 
     private void UpdateSelectedWorksheet()
     { 
