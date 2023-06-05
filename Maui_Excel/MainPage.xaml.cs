@@ -8,6 +8,8 @@ public partial class MainPage : ContentPage
 {
     int count = 0;
 
+    private string selectedWorksheet { get; set; }
+
     public MainPage()
     {
         InitializeComponent();
@@ -45,49 +47,50 @@ public partial class MainPage : ContentPage
             var worksheet = workbook.Worksheet(1); // Предполагается, что данные находятся в первом листе
             var worksheetNames = workbook.Worksheets.Select(sheet => sheet.Name).ToList();
             worksheetPicker.ItemsSource = worksheetNames;
-            worksheetPicker.SelectedItem = worksheetNames.FirstOrDefault();                      
+            worksheetPicker.SelectedItem = worksheetNames.FirstOrDefault(); 
+            UpdateSelectedWorksheet();
 
 
             // Получение диапазона данных в виде двумерного массива 
-            var range = worksheet.RangeUsed();
-            var rowCount = range.RowCount();
-            var columnCount = range.ColumnCount();
-            var data = new string[rowCount, columnCount];
+            //var range = worksheet.RangeUsed();
+            //var rowCount = range.RowCount();
+            //var columnCount = range.ColumnCount();
+            //var data = new string[rowCount, columnCount];
 
-            for (int row = 1; row <= rowCount; row++)
-            {
-                for (int column = 1; column <= columnCount; column++)
-                {
-                    var cellValue = range.Cell(row, column).Value.ToString();
-                    data[row - 1, column - 1] = cellValue;
-                }
-            }
+            //for (int row = 1; row <= rowCount; row++)
+            //{
+            //    for (int column = 1; column <= columnCount; column++)
+            //    {
+            //        var cellValue = range.Cell(row, column).Value.ToString();
+            //        data[row - 1, column - 1] = cellValue;
+            //    }
+            //}
 
-            UpdateSelectedWorksheet();
-            var tBook = new XLWorkbook();
-            var tSheet = tBook.Worksheets.Add("New Sheet");
+            
+            //var tBook = new XLWorkbook();
+            //var tSheet = tBook.Worksheets.Add("New Sheet");
 
-            // Заполнение ячеек на листе данными из двумерного массива
-            for (int row = 0; row < rowCount; row++)
-            {
-                for (int column = 0; column < columnCount; column++)
-                {
-                    tSheet.Cell(row + 1, column + 1).SetValue(data[row, column]); // принудительное сохранение в строку
-                }
-            }            
-            tBook.SaveAs("D:\\PathToFile2.xlsx");            
+            //// Заполнение ячеек на листе данными из двумерного массива
+            //for (int row = 0; row < rowCount; row++)
+            //{
+            //    for (int column = 0; column < columnCount; column++)
+            //    {
+            //        tSheet.Cell(row + 1, column + 1).SetValue(data[row, column]); // принудительное сохранение в строку
+            //    }
+            //}            
+            //tBook.SaveAs("D:\\PathToFile2.xlsx");            
         }
     }
 
-    private void OnWorksheetSelectedIndexChanged(object sender, EventArgs e)
-    {
-        var selectedWorksheet = worksheetPicker.SelectedItem as string;
-        // Здесь можно выполнить действия с выбранным листом, сохранить его в переменной или выполнять другую логику
-    }
+    //private void UpdateSelectedWorksheet(object sender, EventArgs e)
+    //{
+    //    selectedWorksheet = worksheetPicker.SelectedItem as string;
+    //    // Здесь можно выполнить действия с выбранным листом, сохранить его в переменной или выполнять другую логику
+    //}
 
     private void UpdateSelectedWorksheet()
-    {
-        var selectedWorksheet = worksheetPicker.SelectedItem as string;
+    { 
+        selectedWorksheet = worksheetPicker.SelectedItem as string;
         // Здесь можно выполнить действия с выбранным листом, сохранить его в переменной или выполнять другую логику
 
         
