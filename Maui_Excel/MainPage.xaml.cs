@@ -8,7 +8,22 @@ public partial class MainPage : ContentPage
 {
     int count = 0;
 
-    private string selectedWorksheet { get; set; }
+    private List<string> worksheetNames;
+
+    private string selectedWorksheet;
+
+    public string SelectedWorksheet
+    {
+        get { return selectedWorksheet; }
+        set
+        {
+            if (selectedWorksheet != value)
+            {
+                selectedWorksheet = value;
+                // Выполните дополнительную логику при изменении выбранного листа
+            }
+        }
+    }
 
     public MainPage()
     {
