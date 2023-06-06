@@ -13,7 +13,7 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
-        worksheetPicker.SelectedIndexChanged += OnWorksheetSelectedIndexChanged;
+        //worksheetPicker.SelectedIndexChanged += OnWorksheetSelectedIndexChanged;
 
     }
 
@@ -49,7 +49,22 @@ public partial class MainPage : ContentPage
             var worksheet = workbook.Worksheet(1); // Предполагается, что данные находятся в первом листе
             var worksheetNames = workbook.Worksheets.Select(sheet => sheet.Name).ToList();
             worksheetPicker.ItemsSource = worksheetNames;
-            worksheetPicker.SelectedIndex = 0; 
+            worksheetPicker.SelectedIndex = 0;
+
+            BoxView boxView = new BoxView
+            {
+                WidthRequest = 150,
+                HeightRequest = 150,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.CenterAndExpand
+            };
+            Picker picker = new Picker();
+            picker.SelectedIndexChanged += 
+        };
+
+       
+            
+
             //UpdateSelectedWorksheet();
             //UpdateWorksheetList();
 
