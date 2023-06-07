@@ -1,15 +1,20 @@
 ﻿using ClosedXML.Excel;
-using Microsoft.Maui.Controls.Internals;
-using Microsoft.Maui.Controls.Xaml;
+using Maui_Excel.Model;
 
 namespace Maui_Excel;
 
-public partial class MainPage : ContentPage
+public partial class MainPage 
 {
+    public MainPage(Models models)
+    {
+        InitializeComponent();
+        //worksheetPicker.SelectedIndexChanged += OnWorksheetSelectedIndexChanged;
+        BindingContext = models;
+    }
+
     int count = 0;
 
     private List<string> worksheetNames;
-
     private string selectedWorksheet;
 
     public string SelectedWorksheet
@@ -25,12 +30,7 @@ public partial class MainPage : ContentPage
         }
     }
 
-    public MainPage()
-    {
-        InitializeComponent();
-        //worksheetPicker.SelectedIndexChanged += OnWorksheetSelectedIndexChanged;
-
-    }
+   
 
     private async void OnCounterClicked(object sender, EventArgs e)
     {
@@ -62,7 +62,7 @@ public partial class MainPage : ContentPage
         using (XLWorkbook workbook = new XLWorkbook(dataFromTargetFile))
         {
             var worksheet = workbook.Worksheet(1); // Предполагается, что данные находятся в первом листе
-            var worksheetNames = workbook.Worksheets.Select(sheet => sheet.Name).ToList();
+            worksheetNames = workbook.Worksheets.Select(sheet => sheet.Name).ToList();
             worksheetPicker.ItemsSource = worksheetNames;
             worksheetPicker.SelectedIndex = 0;
 
@@ -74,7 +74,7 @@ public partial class MainPage : ContentPage
                 VerticalOptions = LayoutOptions.CenterAndExpand
             };
             Picker picker = new Picker();
-            picker.SelectedIndexChanged += 
+            //picker.SelectedIndexChanged += 
         };
 
        
@@ -112,7 +112,7 @@ public partial class MainPage : ContentPage
             //    }
             //}            
             //tBook.SaveAs("D:\\PathToFile2.xlsx");            
-        }
+        
     }
 
     private void UpdateWorksheetList()
