@@ -6,7 +6,7 @@ namespace Maui_Excel.Model
 {
     public class Models
     {
-        public string Path { get; set; } = "jkhklhkjh";
+        public string Path { get; set; } = "Оце так шлях!";
         public Workbook WorkBook { get; set; }
         public Worksheet WorkSheet { get; set; }
         public Cell Cell { get; set; } 

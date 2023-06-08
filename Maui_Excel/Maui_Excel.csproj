@@ -50,10 +50,8 @@
 
 	<ItemGroup>
 	  <PackageReference Include="ClosedXML" Version="0.101.0" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="ViewModel\" />
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
+	  <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
 	</ItemGroup>
 
 </Project>
