@@ -1,15 +1,16 @@
 ﻿using ClosedXML.Excel;
 using Maui_Excel.Model;
+using Maui_Excel.ViewModel;
 
 namespace Maui_Excel;
 
 public partial class MainPage 
 {
-    public MainPage(Models models)
+    public MainPage(MainViewModel vm)
     {
         InitializeComponent();
         //worksheetPicker.SelectedIndexChanged += OnWorksheetSelectedIndexChanged;
-        BindingContext = models;
+        BindingContext = vm;
     }
 
     int count = 0;

@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:Maui_Excel.ViewModel"
+             x:DataType="viewmodel:MainViewModel"
              x:Class="Maui_Excel.MainPage">
     
 
@@ -16,13 +18,17 @@
                 FontSize="32"
                 HorizontalOptions="Center" />
 
-            <Label
+            <!--<Label
                 Text="{Binding Path}"
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App UI"
                 FontSize="18"
-                HorizontalOptions="Center" />
-            
+                HorizontalOptions="Center" />-->
+
+            <Label
+                Text="{Binding AddCommand}"
+                x:Name="Adddd"/>
+
 
             <Button
                 x:Name="CounterBtn"

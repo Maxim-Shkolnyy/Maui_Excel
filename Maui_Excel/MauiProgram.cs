@@ -15,6 +15,7 @@
 
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<Model.Models>();
+            builder.Services.AddSingleton<ViewModel.MainViewModel>();
 
             return builder.Build();
         }
