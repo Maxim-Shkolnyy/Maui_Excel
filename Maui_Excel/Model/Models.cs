@@ -11,5 +11,6 @@ namespace Maui_Excel.Model
         public Worksheet WorkSheet { get; set; }
         public Cell Cell { get; set; } 
         public IXLRange Range { get; set; }
+        public List<string> WorksheetNames { get; set; }
     }
 }
