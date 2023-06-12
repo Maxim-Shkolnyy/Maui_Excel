@@ -1,4 +1,7 @@
-﻿namespace Maui_Excel
+﻿using Maui_Excel.Model;
+using Maui_Excel.ViewModel;
+
+namespace Maui_Excel
 {
     public static class MauiProgram
     {
@@ -14,8 +17,8 @@
                 });
 
             builder.Services.AddSingleton<MainPage>();
-            builder.Services.AddSingleton<Model.Models>();
-            builder.Services.AddSingleton<ViewModel.MainViewModel>();
+            builder.Services.AddSingleton<Models>();
+            builder.Services.AddTransient<MainViewModel>();
 
             return builder.Build();
         }

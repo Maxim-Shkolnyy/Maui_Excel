@@ -39,6 +39,13 @@
 
             <Entry x:Name="targetFilePath" HorizontalTextAlignment ="Center" ClearButtonVisibility ="WhileEditing" Margin ="5"  />
 
+            <!--<Picker x:Name="worksheetPicker"
+        ItemsSource="{Binding WorksheetNames}"
+        SelectedIndex="{Binding SelectedWorksheetIndex}"
+        SelectedItem="{Binding SelectedWorksheet}">
+            </Picker>-->
+
+
             <Picker x:Name="worksheetPicker">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">

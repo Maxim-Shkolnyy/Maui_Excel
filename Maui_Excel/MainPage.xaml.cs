@@ -6,16 +6,17 @@ namespace Maui_Excel;
 
 public partial class MainPage 
 {
-    public MainPage(MainViewModel vm)
+    public MainPage(MainViewModel viewModels, Models models)
     {
         InitializeComponent();
         //worksheetPicker.SelectedIndexChanged += OnWorksheetSelectedIndexChanged;
-        BindingContext = vm;
+        BindingContext = viewModels;
+        BindingContext = models;
     }
 
     int count = 0;
 
-    private List<string> worksheetNames;
+    //private List<string> worksheetNames;
     private string selectedWorksheet;
 
     public string SelectedWorksheet
@@ -63,18 +64,18 @@ public partial class MainPage
         using (XLWorkbook workbook = new XLWorkbook(dataFromTargetFile))
         {
             var worksheet = workbook.Worksheet(1); // Предполагается, что данные находятся в первом листе
-            worksheetNames = workbook.Worksheets.Select(sheet => sheet.Name).ToList();
-            worksheetPicker.ItemsSource = worksheetNames;
+             workbook.Worksheets.Select(sheet => sheet.Name).ToList();
+            //worksheetPicker.ItemsSource = worksheetNames;
             worksheetPicker.SelectedIndex = 0;
 
-            BoxView boxView = new BoxView
-            {
-                WidthRequest = 150,
-                HeightRequest = 150,
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.CenterAndExpand
-            };
-            Picker picker = new Picker();
+            //BoxView boxView = new BoxView
+            //{
+            //    WidthRequest = 150,
+            //    HeightRequest = 150,
+            //    HorizontalOptions = LayoutOptions.Center,
+            //    VerticalOptions = LayoutOptions.CenterAndExpand
+            //};
+            //Picker picker = new Picker();
             //picker.SelectedIndexChanged += 
         };
 
