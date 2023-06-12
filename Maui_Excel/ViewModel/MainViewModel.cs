@@ -30,4 +30,19 @@ public partial class MainViewModel : ObservableObject
         //add item
         Text = string.Empty;
     }
-}
+
+
+    public ObservableCollection<Model.Models> Worksheets { get; } = new ObservableCollection<Model.Models>();
+
+    // Метод для загрузки книги Excel и получения списка листов
+    private void LoadExcelFile()
+    {
+        // Логика загрузки книги Excel и получения списка листов
+        // ...
+
+        // После получения списка листов, добавьте их в коллекцию Worksheets
+        foreach (var worksheet in worksheetsFromExcel)
+        {
+            Worksheets.Add(new WorksheetModel { Name = worksheet.Name });
+        }
+    }

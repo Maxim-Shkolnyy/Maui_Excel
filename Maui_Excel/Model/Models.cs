@@ -8,7 +8,7 @@ namespace Maui_Excel.Model
     {
         public string Path { get; set; } = "Оце так шлях!";
         public Workbook WorkBook { get; set; }
-        public Worksheet WorkSheet { get; set; }
+        public Worksheet WorkSheetName { get; set; }
         public Cell Cell { get; set; } 
         public IXLRange Range { get; set; }
     }
